@@ -1,0 +1,15 @@
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .headerLogo {
+    padding-left: 18px;
+  }
+  .headerNav {
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    padding-right: 18px;
+  }
+}
