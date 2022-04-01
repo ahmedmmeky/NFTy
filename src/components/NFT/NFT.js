@@ -21,7 +21,7 @@ const NFT = ({ name, price, description, imgUrl }) => {
         </div>
       </CardContent>
       <CardActions className={styles.cardActions}>
-        <Button variant="contained" size="small">
+        <Button variant="contained" size="small" color="primary">
           Bid
         </Button>
         <FavoriteBorderIcon />
