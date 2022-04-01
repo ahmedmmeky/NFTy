@@ -10,20 +10,14 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 const NFT = ({ name, price, description, imgUrl }) => {
   return (
     <Card sx={{ maxWidth: 345 }} className={styles.cardContainer}>
-      <CardMedia
-        component="img"
-        width="140"
-        image="https://imageio.forbes.com/specials-images/imageserve/6170e01f8d7639b95a7f2eeb/Sotheby-s-NFT-Natively-Digital-1-2-sale-Bored-Ape-Yacht-Club--8817-by-Yuga-Labs/0x0.png?fit=bounds&format=png&width=960"
-        alt="NFT image"
-      />
+      <CardMedia component="img" width="140" image={imgUrl} alt="NFT image" />
       <CardContent className={styles.cardContent}>
         <div className={styles.nameContainer}>
-          <h4>NFT Name</h4>
-          {name}
+          <h4>{name}</h4>
         </div>
         <div className={styles.priceContainer}>
           <h5>List Price</h5>
-          <h5>$400</h5>
+          <h5>${price}</h5>
         </div>
       </CardContent>
       <CardActions className={styles.cardActions}>
