@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Explore.module.scss";
 import NFT from "../../components/NFT";
+
+import IconButton from "@material-ui/core/IconButton";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import SearchIcon from "@material-ui/icons/Search";
+import TextField from "@mui/material/TextField";
+
 const Explore = () => {
   const nfts = [
     {
       id: 0,
-      name: "Sample",
+      name: "Lorem",
       price: 400,
       description: "lorem ipsum dolor sit amet",
       imgUrl:
@@ -13,7 +19,7 @@ const Explore = () => {
     },
     {
       id: 1,
-      name: "Sample",
+      name: "Septum",
       price: 400,
       description: "lorem ipsum dolor sit amet",
       imgUrl:
@@ -21,7 +27,7 @@ const Explore = () => {
     },
     {
       id: 2,
-      name: "Sample",
+      name: "Call",
       price: 400,
       description: "lorem ipsum dolor sit amet",
       imgUrl:
@@ -29,7 +35,7 @@ const Explore = () => {
     },
     {
       id: 3,
-      name: "Sample",
+      name: "Random",
       price: 400,
       description: "lorem ipsum dolor sit amet",
       imgUrl:
@@ -37,7 +43,7 @@ const Explore = () => {
     },
     {
       id: 4,
-      name: "Sample",
+      name: "Test",
       price: 400,
       description: "lorem ipsum dolor sit amet",
       imgUrl:
@@ -45,30 +51,56 @@ const Explore = () => {
     },
     {
       id: 5,
-      name: "Sample",
+      name: "Fourth",
       price: 400,
       description: "lorem ipsum dolor sit amet",
       imgUrl:
         "https://imageio.forbes.com/specials-images/imageserve/6170e01f8d7639b95a7f2eeb/Sotheby-s-NFT-Natively-Digital-1-2-sale-Bored-Ape-Yacht-Club--8817-by-Yuga-Labs/0x0.png?fit=bounds&format=png&width=960",
     },
   ];
+
+  const [search, setSearch] = useState("");
+
+  const updatedNFTs = nfts.filter((nft) =>
+    nft.name.toLowerCase().includes(search.toLowerCase())
+  );
   return (
     <div className={styles.exploreContainer}>
       <div className={styles.header}>
         <h2>NFTy Marketplace</h2>
         <h5>Popular Listings For You</h5>
+        <TextField
+          label="Search NFTs"
+          onChange={(e) => setSearch(e.target.value)}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment>
+                <IconButton>
+                  <SearchIcon />
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
+        />
       </div>
       <div className={styles.nftsContainer}>
-        {nfts.map((nft) => {
-          return (
-            <NFT
-              name={nft.name}
-              price={nft.price}
-              description={nft.description}
-              imgUrl={nft.imgUrl}
-            />
-          );
-        })}
+        {updatedNFTs.length !== 0 ? (
+          updatedNFTs.map((nft) => {
+            return (
+              <NFT
+                id={nft.id}
+                name={nft.name}
+                price={nft.price}
+                description={nft.description}
+                imgUrl={nft.imgUrl}
+              />
+            );
+          })
+        ) : (
+          <div className="no-coins">
+            <h2>No NFTs Were Found</h2>
+          </div>
+        )}
       </div>
     </div>
   );
