@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import LandingPage from "./content/LandingPage";
 import Explore from "./content/Explore";
+import Create from "./content/Create";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={LandingPage}></Route>
           <Route path="/explore" component={Explore}></Route>
+          <Route path="/create" component={Create}></Route>
         </Switch>
       </Router>
     </div>

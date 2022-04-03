@@ -12,8 +12,10 @@ export const Header = () => {
         <Link to="/explore">
           <h3>Explore</h3>
         </Link>
+        <Link to="/create">
+          <h3>Create</h3>
+        </Link>
 
-        <h3>Create</h3>
         <h3>Profile</h3>
         <h3>Wallet</h3>
       </div>
