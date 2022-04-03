@@ -8,8 +8,24 @@ import SearchIcon from "@material-ui/icons/Search";
 import TextField from "@mui/material/TextField";
 import Switch from "../../components/Switch";
 
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
+
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
+
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
 
 const Explore = () => {
   const nfts = [
@@ -65,6 +81,13 @@ const Explore = () => {
 
   const [search, setSearch] = useState("");
   const [listView, setListView] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [clickedNFT, setClickedNFT] = useState({});
+  const handleOpen = (nft) => {
+    setOpen(true);
+    setClickedNFT(nft);
+  };
+  const handleClose = () => setOpen(false);
 
   const updatedNFTs = nfts.filter((nft) =>
     nft.name.toLowerCase().includes(search.toLowerCase())
@@ -109,13 +132,15 @@ const Explore = () => {
           {updatedNFTs.length !== 0 ? (
             updatedNFTs.map((nft) => {
               return (
-                <NFT
-                  id={nft.id}
-                  name={nft.name}
-                  price={nft.price}
-                  description={nft.description}
-                  imgUrl={nft.imgUrl}
-                />
+                <div key={nft.id}>
+                  <NFT
+                    id={nft.id}
+                    name={nft.name}
+                    price={nft.price}
+                    description={nft.description}
+                    imgUrl={nft.imgUrl}
+                  />
+                </div>
               );
             })
           ) : (
@@ -133,7 +158,11 @@ const Explore = () => {
               {updatedNFTs.length !== 0 ? (
                 updatedNFTs.map((nft) => {
                   return (
-                    <div className={styles.listNft}>
+                    <div
+                      key={nft.id}
+                      className={styles.listNft}
+                      onClick={() => handleOpen(nft)}
+                    >
                       <div className={styles.imgName}>
                         <img src={nft.imgUrl} alt="NFT Image" />
                         <h4>{nft.name}</h4>
@@ -149,6 +178,26 @@ const Explore = () => {
               )}
             </Stack>
           </Box>
+          <div>
+            <Button onClick={handleOpen}>Open modal</Button>
+            <Modal
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="modal-modal-title"
+              aria-describedby="modal-modal-description"
+            >
+              <Box sx={style}>
+                <NFT
+                  id={clickedNFT.id}
+                  name={clickedNFT.name}
+                  price={clickedNFT.price}
+                  description={clickedNFT.description}
+                  imgUrl={clickedNFT.imgUrl}
+                  expandedView={true}
+                />
+              </Box>
+            </Modal>
+          </div>
         </div>
       )}
     </div>
