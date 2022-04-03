@@ -6,7 +6,7 @@ import IconButton from "@material-ui/core/IconButton";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 import TextField from "@mui/material/TextField";
-
+import Switch from "../../components/Switch";
 const Explore = () => {
   const nfts = [
     {
@@ -60,6 +60,7 @@ const Explore = () => {
   ];
 
   const [search, setSearch] = useState("");
+  const [listView, setListView] = useState(false);
 
   const updatedNFTs = nfts.filter((nft) =>
     nft.name.toLowerCase().includes(search.toLowerCase())
@@ -67,11 +68,27 @@ const Explore = () => {
   return (
     <div className={styles.exploreContainer}>
       <div className={styles.header}>
-        <h2>NFTy Marketplace</h2>
-        <h5>Popular Listings For You</h5>
+        <div className={styles.headerWithSwitch}>
+          <div className={styles.textContainer}>
+            <h2>NFTy Marketplace</h2>
+            <h5>Popular Listings For You</h5>
+          </div>
+          <div className={styles.switchContainer}>
+            <h5>List View</h5>
+            <div className={styles.switch}>
+              <Switch
+                isOn={listView}
+                handleToggle={() => setListView(!listView)}
+                onColor="#06D6A0"
+              />
+            </div>
+          </div>
+        </div>
+
         <TextField
           label="Search NFTs"
           onChange={(e) => setSearch(e.target.value)}
+          className={styles.searchBar}
           InputProps={{
             endAdornment: (
               <InputAdornment>
