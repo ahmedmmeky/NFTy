@@ -53,4 +53,33 @@
     padding-right: 24px;
     flex-wrap: wrap;
   }
+
+  .listNftsContainer {
+    padding-top: 32px;
+    padding-left: 24px;
+    padding-right: 24px;
+    .listNft {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 200px;
+      background-color: rgb(195, 194, 194);
+
+      h4 {
+        padding-right: 24px;
+      }
+    }
+
+    .imgName {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    img {
+      width: 100px;
+      height: 100px;
+    }
+  }
 }

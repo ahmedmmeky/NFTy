@@ -7,6 +7,10 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 import TextField from "@mui/material/TextField";
 import Switch from "../../components/Switch";
+
+import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
+
 const Explore = () => {
   const nfts = [
     {
@@ -100,25 +104,53 @@ const Explore = () => {
           }}
         />
       </div>
-      <div className={styles.nftsContainer}>
-        {updatedNFTs.length !== 0 ? (
-          updatedNFTs.map((nft) => {
-            return (
-              <NFT
-                id={nft.id}
-                name={nft.name}
-                price={nft.price}
-                description={nft.description}
-                imgUrl={nft.imgUrl}
-              />
-            );
-          })
-        ) : (
-          <div className="no-coins">
-            <h2>No NFTs Were Found</h2>
-          </div>
-        )}
-      </div>
+      {!listView && (
+        <div className={styles.nftsContainer}>
+          {updatedNFTs.length !== 0 ? (
+            updatedNFTs.map((nft) => {
+              return (
+                <NFT
+                  id={nft.id}
+                  name={nft.name}
+                  price={nft.price}
+                  description={nft.description}
+                  imgUrl={nft.imgUrl}
+                />
+              );
+            })
+          ) : (
+            <div className="no-coins">
+              <h2>No NFTs Were Found</h2>
+            </div>
+          )}
+        </div>
+      )}
+
+      {listView && (
+        <div className={styles.listNftsContainer}>
+          <Box sx={{ width: "100%" }}>
+            <Stack spacing={2} className={styles.stack}>
+              {updatedNFTs.length !== 0 ? (
+                updatedNFTs.map((nft) => {
+                  return (
+                    <div className={styles.listNft}>
+                      <div className={styles.imgName}>
+                        <img src={nft.imgUrl} alt="NFT Image" />
+                        <h4>{nft.name}</h4>
+                      </div>
+                      <h4>${nft.price}</h4>
+                    </div>
+                  );
+                })
+              ) : (
+                <div className="no-coins">
+                  <h2>No NFTs Were Found</h2>
+                </div>
+              )}
+            </Stack>
+          </Box>
+        </div>
+      )}
     </div>
   );
 };
