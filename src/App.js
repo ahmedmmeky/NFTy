@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import LandingPage from "./content/LandingPage";
 import Explore from "./content/Explore";
 import Create from "./content/Create";
+import Wallet from "./content/Wallet";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route exact path="/" component={LandingPage}></Route>
           <Route path="/explore" component={Explore}></Route>
           <Route path="/create" component={Create}></Route>
+          <Route path="/wallet" component={Wallet}></Route>
         </Switch>
       </Router>
     </div>

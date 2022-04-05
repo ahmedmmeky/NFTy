@@ -9,7 +9,6 @@ import TextField from "@mui/material/TextField";
 import Switch from "../../components/Switch";
 
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 
 import Box from "@mui/material/Box";
@@ -164,7 +163,7 @@ const Explore = () => {
                       onClick={() => handleOpen(nft)}
                     >
                       <div className={styles.imgName}>
-                        <img src={nft.imgUrl} alt="NFT Image" />
+                        <img src={nft.imgUrl} alt="NFT" />
                         <h4>{nft.name}</h4>
                       </div>
                       <h4>${nft.price}</h4>

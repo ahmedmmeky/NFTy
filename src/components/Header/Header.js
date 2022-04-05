@@ -17,7 +17,9 @@ export const Header = () => {
         </Link>
 
         <h3>Profile</h3>
-        <h3>Wallet</h3>
+        <Link to="/wallet">
+          <h3>Wallet</h3>
+        </Link>
       </div>
     </div>
   );
