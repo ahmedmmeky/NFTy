@@ -1,0 +1,18 @@
+.wallet {
+  padding-top: 24px;
+  .myWallets {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+
+    .listItem {
+      padding-bottom: 18px;
+    }
+  }
+
+  .createWallet {
+    padding-top: 24px;
+  }
+}
