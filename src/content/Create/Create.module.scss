@@ -1,20 +1,33 @@
-.createForm {
+.create {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 64px;
+  flex-direction: column;
 
-  .form {
-    padding-right: 24px;
+  .createForm {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 64px;
+
+    .image {
+      padding-left: 64px;
+    }
+
+    .form {
+      padding-right: 64px;
+    }
+
+    .inputContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      h4 {
+        margin-bottom: 4px;
+      }
+    }
   }
 
-  .inputContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
-    h4 {
-      margin-bottom: 4px;
-    }
+  .buttonContainer {
+    padding-top: 24px;
   }
 }

@@ -1,7 +1,10 @@
 import React from "react";
 import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 import styles from "./Create.module.scss";
+import Input from "@mui/material/Input";
+import { Link } from "react-router-dom";
 
 const Create = () => {
   return (
@@ -10,7 +13,13 @@ const Create = () => {
       <div className={styles.createForm}>
         {" "}
         <div className={styles.image}>
-          <img src="" alt="" />
+          <h4>Upload an Image</h4>
+          <Input
+            accept="image/*"
+            id="contained-button-file"
+            multiple
+            type="file"
+          />
         </div>
         <div className={styles.form}>
           <FormControl>
@@ -28,6 +37,11 @@ const Create = () => {
             </div>
           </FormControl>
         </div>
+      </div>
+      <div className={styles.buttonContainer}>
+        <Link to="/explore">
+          <Button variant="contained">Create NFT</Button>
+        </Link>
       </div>
     </div>
   );
