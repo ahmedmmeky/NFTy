@@ -21,14 +21,22 @@ const Wallet = () => {
       name: "Coinbase Wallet",
       imgUrl:
         "https://pbs.twimg.com/profile_images/1484586799921909764/A9yYenz3.png",
+      address: "24252nkmlfonrfon3mrop4rj4pj42po24p2jrkrf",
     },
     {
       id: 2,
       name: "Meta Mask",
       imgUrl:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/1200px-MetaMask_Fox.svg.png",
+      address: "24252nkmlfonrfon3mrop4rj4pj42po24p2jrkrf",
     },
   ]);
+
+  const [open, setOpen] = useState(false);
+
+  const [walletOpen, setWalletOpen] = useState(false);
+
+  const [currentWallet, setCurrentWallet] = useState({});
 
   useEffect(() => {}, [wallets]);
 
@@ -44,11 +52,16 @@ const Wallet = () => {
     p: 4,
     display: "flex",
     justifyContent: "center",
-    gap: "32px",
+    gap: 32,
   };
 
-  const handleOpen = (nft) => {
+  const handleOpen = () => {
     setOpen(true);
+  };
+
+  const handleWalletOpen = (wallet) => {
+    setCurrentWallet(wallet);
+    setWalletOpen(true);
   };
 
   const handleCreate = (walletName) => {
@@ -56,10 +69,14 @@ const Wallet = () => {
       id: wallets.length + 1,
       name: walletName,
       imgUrl: "",
+      address: "24252nkmlfonrfon3mrop4rj4pj42po24p2jrkrf",
     });
   };
-  const handleClose = () => setOpen(false);
-  const [open, setOpen] = useState(false);
+  const handleClose = () => {
+    setOpen(false);
+    setWalletOpen(false);
+  };
+
   return (
     <div className={styles.wallet}>
       <div className={styles.myWallets}>
@@ -67,7 +84,11 @@ const Wallet = () => {
         <List dense={false}>
           {wallets.map((wallet) => {
             return (
-              <ListItem key={wallet.id} className={styles.listItem}>
+              <ListItem
+                key={wallet.id}
+                className={styles.listItem}
+                onClick={() => handleWalletOpen(wallet)}
+              >
                 <ListItemAvatar>
                   <Avatar src={wallet.imgUrl}></Avatar>
                 </ListItemAvatar>
@@ -113,6 +134,26 @@ const Wallet = () => {
                 Create Wallet
               </Button>
             </FormControl>
+          </Box>
+        </Modal>
+
+        <Modal
+          open={walletOpen}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+          className={styles.form}
+        >
+          <Box sx={style}>
+            <div className={styles.walletInfo}>
+              <ListItem className={styles.listItem}>
+                <ListItemAvatar>
+                  <Avatar src={currentWallet.imgUrl}></Avatar>
+                </ListItemAvatar>
+                <ListItemText primary={currentWallet.name} secondary={false} />
+              </ListItem>
+              <Input value={currentWallet.address} />
+            </div>
           </Box>
         </Modal>
       </div>
