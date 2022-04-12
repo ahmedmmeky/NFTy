@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
@@ -8,9 +8,14 @@ import styles from "./Wallet.module.scss";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
+import FormControl from "@mui/material/FormControl";
+import Input from "@mui/material/Input";
+import FormHelperText from "@mui/material/FormHelperText";
+import InputLabel from "@mui/material/InputLabel";
 
 const Wallet = () => {
-  const wallets = [
+  const [walletName, setWalletName] = useState("");
+  const [wallets, setWallets] = useState([
     {
       id: 1,
       name: "Coinbase Wallet",
@@ -23,7 +28,9 @@ const Wallet = () => {
       imgUrl:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/1200px-MetaMask_Fox.svg.png",
     },
-  ];
+  ]);
+
+  useEffect(() => {}, [wallets]);
 
   const style = {
     position: "absolute",
@@ -35,10 +42,21 @@ const Wallet = () => {
     border: "2px solid #000",
     boxShadow: 24,
     p: 4,
+    display: "flex",
+    justifyContent: "center",
+    gap: "32px",
   };
 
   const handleOpen = (nft) => {
     setOpen(true);
+  };
+
+  const handleCreate = (walletName) => {
+    wallets.push({
+      id: wallets.length + 1,
+      name: walletName,
+      imgUrl: "",
+    });
   };
   const handleClose = () => setOpen(false);
   const [open, setOpen] = useState(false);
@@ -70,9 +88,31 @@ const Wallet = () => {
           onClose={handleClose}
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
+          className={styles.form}
         >
           <Box sx={style}>
-            <p>Hello</p>
+            <FormControl>
+              <div className={styles.inputContainer}>
+                <InputLabel htmlFor="wallet-name">Wallet Name</InputLabel>
+                <Input
+                  id="wallet-name"
+                  aria-describedby="wallet-helper"
+                  onChange={(e) => setWalletName(e.target.value)}
+                />
+                <FormHelperText id="wallet-helper">
+                  Please provide an easy to remember name
+                </FormHelperText>
+              </div>
+              <Button
+                variant="contained"
+                onClick={() => {
+                  handleCreate(walletName);
+                  handleClose();
+                }}
+              >
+                Create Wallet
+              </Button>
+            </FormControl>
           </Box>
         </Modal>
       </div>
