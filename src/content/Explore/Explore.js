@@ -110,7 +110,7 @@ const Explore = () => {
           updatedNFTs.map((nft) => {
             return (
               <div key={nft.id}>
-                <Link to={{ pathname: `/${nft.id}` }}>
+                <Link to={{ pathname: `/${nft.id}` }} state={nft}>
                   <NFT
                     id={nft.id}
                     name={nft.name}

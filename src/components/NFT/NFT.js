@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -8,6 +9,9 @@ import styles from "./NFT.module.scss";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 const NFT = ({ name, price, description, imgUrl, expandedView = true }) => {
+  const location = useLocation();
+  const state = location.state;
+  console.log(state);
   return (
     <>
       {!expandedView && (
@@ -35,7 +39,11 @@ const NFT = ({ name, price, description, imgUrl, expandedView = true }) => {
           </CardActions>
         </Card>
       )}
-      {expandedView && <div>Hello</div>}
+      {expandedView && (
+        <div>
+          <h1>{state.name}</h1>
+        </div>
+      )}
     </>
   );
 };
