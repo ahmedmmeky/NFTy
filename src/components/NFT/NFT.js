@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import styles from "./NFT.module.scss";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
-const NFT = ({ name, price, description, imgUrl, expandedView = false }) => {
+const NFT = ({ name, price, description, imgUrl, expandedView = true }) => {
   return (
     <>
       {!expandedView && (

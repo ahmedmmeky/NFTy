@@ -117,6 +117,7 @@ const Explore = () => {
                     price={nft.price}
                     description={nft.description}
                     imgUrl={nft.imgUrl}
+                    expandedView={false}
                   />
                 </Link>
               </div>
