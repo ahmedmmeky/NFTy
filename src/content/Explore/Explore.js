@@ -6,13 +6,6 @@ import IconButton from "@material-ui/core/IconButton";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 import TextField from "@mui/material/TextField";
-import Switch from "../../components/Switch";
-
-import Button from "@mui/material/Button";
-import Modal from "@mui/material/Modal";
-
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
 
 const style = {
   position: "absolute",
@@ -79,14 +72,8 @@ const Explore = () => {
   ];
 
   const [search, setSearch] = useState("");
-  const [listView, setListView] = useState(false);
-  const [open, setOpen] = useState(false);
+
   const [clickedNFT, setClickedNFT] = useState({});
-  const handleOpen = (nft) => {
-    setOpen(true);
-    setClickedNFT(nft);
-  };
-  const handleClose = () => setOpen(false);
 
   const updatedNFTs = nfts.filter((nft) =>
     nft.name.toLowerCase().includes(search.toLowerCase())
@@ -98,16 +85,6 @@ const Explore = () => {
           <div className={styles.textContainer}>
             <h2>NFTy Marketplace</h2>
             <h5>Popular Listings For You</h5>
-          </div>
-          <div className={styles.switchContainer}>
-            <h5>List View</h5>
-            <div className={styles.switch}>
-              <Switch
-                isOn={listView}
-                handleToggle={() => setListView(!listView)}
-                onColor="#06D6A0"
-              />
-            </div>
           </div>
         </div>
 
@@ -126,79 +103,28 @@ const Explore = () => {
           }}
         />
       </div>
-      {!listView && (
-        <div className={styles.nftsContainer}>
-          {updatedNFTs.length !== 0 ? (
-            updatedNFTs.map((nft) => {
-              return (
-                <div key={nft.id}>
-                  <NFT
-                    id={nft.id}
-                    name={nft.name}
-                    price={nft.price}
-                    description={nft.description}
-                    imgUrl={nft.imgUrl}
-                  />
-                </div>
-              );
-            })
-          ) : (
-            <div className="no-coins">
-              <h2>No NFTs Were Found</h2>
-            </div>
-          )}
-        </div>
-      )}
 
-      {listView && (
-        <div className={styles.listNftsContainer}>
-          <Box sx={{ width: "100%" }}>
-            <Stack spacing={2} className={styles.stack}>
-              {updatedNFTs.length !== 0 ? (
-                updatedNFTs.map((nft) => {
-                  return (
-                    <div
-                      key={nft.id}
-                      className={styles.listNft}
-                      onClick={() => handleOpen(nft)}
-                    >
-                      <div className={styles.imgName}>
-                        <img src={nft.imgUrl} alt="NFT" />
-                        <h4>{nft.name}</h4>
-                      </div>
-                      <h4>${nft.price}</h4>
-                    </div>
-                  );
-                })
-              ) : (
-                <div className="no-coins">
-                  <h2>No NFTs Were Found</h2>
-                </div>
-              )}
-            </Stack>
-          </Box>
-          <div>
-            <Button onClick={handleOpen}>Open modal</Button>
-            <Modal
-              open={open}
-              onClose={handleClose}
-              aria-labelledby="modal-modal-title"
-              aria-describedby="modal-modal-description"
-            >
-              <Box sx={style}>
+      <div className={styles.nftsContainer}>
+        {updatedNFTs.length !== 0 ? (
+          updatedNFTs.map((nft) => {
+            return (
+              <div key={nft.id}>
                 <NFT
-                  id={clickedNFT.id}
-                  name={clickedNFT.name}
-                  price={clickedNFT.price}
-                  description={clickedNFT.description}
-                  imgUrl={clickedNFT.imgUrl}
-                  expandedView={true}
+                  id={nft.id}
+                  name={nft.name}
+                  price={nft.price}
+                  description={nft.description}
+                  imgUrl={nft.imgUrl}
                 />
-              </Box>
-            </Modal>
+              </div>
+            );
+          })
+        ) : (
+          <div className="no-coins">
+            <h2>No NFTs Were Found</h2>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
