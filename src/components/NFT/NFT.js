@@ -40,8 +40,30 @@ const NFT = ({ name, price, description, imgUrl, expandedView = true }) => {
         </Card>
       )}
       {expandedView && (
-        <div>
-          <h1>{state.name}</h1>
+        <div className={styles.expanded}>
+          <div className={styles.imgContainer}>
+            <img src={state.imgUrl}></img>
+          </div>
+          <div className={styles.info}>
+            <h1>{state.name}</h1>
+            <div className={styles.subInfo}>
+              <h2>Copies for Sale:</h2>
+              <h2>{state.copies}</h2>
+            </div>
+            <div className={styles.subInfo}>
+              <h2>Current Bid:</h2>
+              <h2>${state.price}</h2>
+            </div>
+            <div className={styles.subInfo}>
+              <h2>About:</h2>
+              <h2>{state.description}</h2>
+            </div>
+            <div className={styles.subInfo}>
+              <Button variant="contained" size="small" color="primary">
+                Place Bid
+              </Button>
+            </div>
+          </div>
         </div>
       )}
     </>

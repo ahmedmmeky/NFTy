@@ -29,6 +29,7 @@ const Explore = () => {
       description: "lorem ipsum dolor sit amet",
       imgUrl:
         "https://imageio.forbes.com/specials-images/imageserve/6170e01f8d7639b95a7f2eeb/Sotheby-s-NFT-Natively-Digital-1-2-sale-Bored-Ape-Yacht-Club--8817-by-Yuga-Labs/0x0.png?fit=bounds&format=png&width=960",
+      copies: 1,
     },
     {
       id: 1,
@@ -37,6 +38,7 @@ const Explore = () => {
       description: "lorem ipsum dolor sit amet",
       imgUrl:
         "https://imageio.forbes.com/specials-images/imageserve/6170e01f8d7639b95a7f2eeb/Sotheby-s-NFT-Natively-Digital-1-2-sale-Bored-Ape-Yacht-Club--8817-by-Yuga-Labs/0x0.png?fit=bounds&format=png&width=960",
+      copies: 1,
     },
     {
       id: 2,
@@ -45,6 +47,7 @@ const Explore = () => {
       description: "lorem ipsum dolor sit amet",
       imgUrl:
         "https://imageio.forbes.com/specials-images/imageserve/6170e01f8d7639b95a7f2eeb/Sotheby-s-NFT-Natively-Digital-1-2-sale-Bored-Ape-Yacht-Club--8817-by-Yuga-Labs/0x0.png?fit=bounds&format=png&width=960",
+      copies: 1,
     },
     {
       id: 3,
@@ -53,6 +56,7 @@ const Explore = () => {
       description: "lorem ipsum dolor sit amet",
       imgUrl:
         "https://imageio.forbes.com/specials-images/imageserve/6170e01f8d7639b95a7f2eeb/Sotheby-s-NFT-Natively-Digital-1-2-sale-Bored-Ape-Yacht-Club--8817-by-Yuga-Labs/0x0.png?fit=bounds&format=png&width=960",
+      copies: 1,
     },
     {
       id: 4,
@@ -61,6 +65,7 @@ const Explore = () => {
       description: "lorem ipsum dolor sit amet",
       imgUrl:
         "https://imageio.forbes.com/specials-images/imageserve/6170e01f8d7639b95a7f2eeb/Sotheby-s-NFT-Natively-Digital-1-2-sale-Bored-Ape-Yacht-Club--8817-by-Yuga-Labs/0x0.png?fit=bounds&format=png&width=960",
+      copies: 1,
     },
     {
       id: 5,
@@ -69,6 +74,7 @@ const Explore = () => {
       description: "lorem ipsum dolor sit amet",
       imgUrl:
         "https://imageio.forbes.com/specials-images/imageserve/6170e01f8d7639b95a7f2eeb/Sotheby-s-NFT-Natively-Digital-1-2-sale-Bored-Ape-Yacht-Club--8817-by-Yuga-Labs/0x0.png?fit=bounds&format=png&width=960",
+      copies: 1,
     },
   ];
 
