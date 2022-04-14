@@ -6,6 +6,7 @@ import IconButton from "@material-ui/core/IconButton";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 import TextField from "@mui/material/TextField";
+import { Link } from "react-router-dom";
 
 const style = {
   position: "absolute",
@@ -109,13 +110,15 @@ const Explore = () => {
           updatedNFTs.map((nft) => {
             return (
               <div key={nft.id}>
-                <NFT
-                  id={nft.id}
-                  name={nft.name}
-                  price={nft.price}
-                  description={nft.description}
-                  imgUrl={nft.imgUrl}
-                />
+                <Link to={{ pathname: `/${nft.id}` }}>
+                  <NFT
+                    id={nft.id}
+                    name={nft.name}
+                    price={nft.price}
+                    description={nft.description}
+                    imgUrl={nft.imgUrl}
+                  />
+                </Link>
               </div>
             );
           })
