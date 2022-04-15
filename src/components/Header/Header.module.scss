@@ -2,14 +2,35 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #303030;
 
   .headerLogo {
-    padding-left: 18px;
+    padding-bottom: 12px;
+    padding-left: 24px;
+    padding-top: 12px;
   }
+
+  .headerImage {
+    height: 72px;
+    width: auto;
+  }
+
   .headerNav {
+    color: #FFFFFF;
     display: flex;
     flex-direction: row;
-    gap: 18px;
-    padding-right: 18px;
+    font-family: 'Proxima Nova Light';
+    font-size: 18px;
+    gap: 24px;
+    padding-right: 36px;
+  }
+
+  .link {
+    color: #FFFFFF;
+    text-decoration: none;
+  }
+
+  .link:hover {
+    color: #b0b0b0
   }
 }
