@@ -1,18 +1,20 @@
 .learnVideoContainer {
   padding-left: 48px;
   padding-right: 48px;
+  padding-bottom: 20px;
 
   .title {
     color: #42a5be;
     font-family: 'Proxima Nova Bold';
-    font-size: 28px;
+    font-size: 32px;
+    padding-bottom: 15px;
   }
   
   .redirectButton {
     background-color: #42a5be;
     color: #fff;
     font-family: 'Proxima Nova Regular';
-    font-size: 18px;
+    font-size: 24px;
   }
   
   .redirectButton:hover {
