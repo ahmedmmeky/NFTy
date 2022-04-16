@@ -75,3 +75,37 @@
     }
   }
 }
+
+.form {
+  .close {
+    position: absolute;
+    bottom: 190px;
+    left: 425px;
+    cursor: pointer;
+  }
+  .buttonContainer {
+    display: flex;
+    justify-content: center;
+    button {
+      margin-top: 24px;
+      width: 50%;
+    }
+  }
+
+  .success {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      margin: 0;
+    }
+
+    .closeTwo {
+      position: absolute;
+      bottom: 110px;
+      left: 425px;
+      cursor: pointer;
+    }
+  }
+}

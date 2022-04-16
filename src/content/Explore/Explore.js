@@ -30,6 +30,7 @@ const Explore = () => {
       imgUrl:
         "https://imageio.forbes.com/specials-images/imageserve/6170e01f8d7639b95a7f2eeb/Sotheby-s-NFT-Natively-Digital-1-2-sale-Bored-Ape-Yacht-Club--8817-by-Yuga-Labs/0x0.png?fit=bounds&format=png&width=960",
       copies: 1,
+      sell: true,
     },
     {
       id: 1,
@@ -39,6 +40,7 @@ const Explore = () => {
       imgUrl:
         "https://imageio.forbes.com/specials-images/imageserve/6170e01f8d7639b95a7f2eeb/Sotheby-s-NFT-Natively-Digital-1-2-sale-Bored-Ape-Yacht-Club--8817-by-Yuga-Labs/0x0.png?fit=bounds&format=png&width=960",
       copies: 1,
+      sell: false,
     },
     {
       id: 2,
@@ -48,6 +50,7 @@ const Explore = () => {
       imgUrl:
         "https://imageio.forbes.com/specials-images/imageserve/6170e01f8d7639b95a7f2eeb/Sotheby-s-NFT-Natively-Digital-1-2-sale-Bored-Ape-Yacht-Club--8817-by-Yuga-Labs/0x0.png?fit=bounds&format=png&width=960",
       copies: 1,
+      sell: false,
     },
     {
       id: 3,
@@ -57,6 +60,7 @@ const Explore = () => {
       imgUrl:
         "https://imageio.forbes.com/specials-images/imageserve/6170e01f8d7639b95a7f2eeb/Sotheby-s-NFT-Natively-Digital-1-2-sale-Bored-Ape-Yacht-Club--8817-by-Yuga-Labs/0x0.png?fit=bounds&format=png&width=960",
       copies: 1,
+      sell: false,
     },
     {
       id: 4,
@@ -66,6 +70,7 @@ const Explore = () => {
       imgUrl:
         "https://imageio.forbes.com/specials-images/imageserve/6170e01f8d7639b95a7f2eeb/Sotheby-s-NFT-Natively-Digital-1-2-sale-Bored-Ape-Yacht-Club--8817-by-Yuga-Labs/0x0.png?fit=bounds&format=png&width=960",
       copies: 1,
+      sell: false,
     },
     {
       id: 5,
@@ -75,6 +80,7 @@ const Explore = () => {
       imgUrl:
         "https://imageio.forbes.com/specials-images/imageserve/6170e01f8d7639b95a7f2eeb/Sotheby-s-NFT-Natively-Digital-1-2-sale-Bored-Ape-Yacht-Club--8817-by-Yuga-Labs/0x0.png?fit=bounds&format=png&width=960",
       copies: 1,
+      sell: false,
     },
   ];
 
@@ -124,6 +130,7 @@ const Explore = () => {
                     description={nft.description}
                     imgUrl={nft.imgUrl}
                     expandedView={false}
+                    sell={nft.sell}
                   />
                 </Link>
               </div>
