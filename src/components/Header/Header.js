@@ -7,7 +7,7 @@ export const Header = () => {
   return (
     <div className={styles.headerContainer}>
       <div className={styles.headerLogo}>
-        <Link to="/home">
+        <Link to="/explore">
           <img 
             alt="NFTy logo"
             className={styles.headerImage}
@@ -16,8 +16,8 @@ export const Header = () => {
         </Link>
       </div>
       <div className={styles.headerNav}>
-        <Link to="/home" className={styles.link}>
-          <h3>Home</h3>
+        <Link to="/create" className={styles.link}>
+          <h3>Create</h3>
         </Link>
         <Link to="/explore" className={styles.link}>
           <h3>Explore</h3>

@@ -2,7 +2,6 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Box from "@mui/material/Box";
-import Home from "./content/Home";
 import Explore from "./content/Explore";
 import Portfolio from "./content/Portfolio";
 import Learn from "./content/Learn";
@@ -23,8 +22,7 @@ function App() {
           width: '100%'
         }}/>
         <Routes>
-          <Route exact path="/" element={<Home />}></Route>
-          <Route path="/home" element={<Home />}></Route>
+          <Route exact path="/" element={<Explore />}></Route>
           <Route path="/explore" element={<Explore />}></Route>
           <Route path="/portfolio" element={<Portfolio />}></Route>
           <Route path="/learn" element={<Learn />}></Route>
