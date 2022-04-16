@@ -9,6 +9,8 @@ import styles from "./NFT.module.scss";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import CloseIcon from "@mui/icons-material/Close";
 
 const NFT = ({ name, price, description, imgUrl, expandedView = true }) => {
   const location = useLocation();
@@ -16,6 +18,7 @@ const NFT = ({ name, price, description, imgUrl, expandedView = true }) => {
   console.log(state);
 
   const [open, setOpen] = useState(false);
+  const [success, setSuccess] = useState(false);
   const handleOpen = () => {
     setOpen(true);
   };
@@ -34,8 +37,8 @@ const NFT = ({ name, price, description, imgUrl, expandedView = true }) => {
     boxShadow: 24,
     p: 4,
     display: "flex",
+    flexDirection: "column",
     justifyContent: "center",
-    gap: 32,
   };
   return (
     <>
@@ -102,7 +105,33 @@ const NFT = ({ name, price, description, imgUrl, expandedView = true }) => {
             aria-describedby="modal-modal-description"
             className={styles.form}
           >
-            <Box sx={style}></Box>
+            <Box sx={style}>
+              {!success && (
+                <>
+                  <h4>Your Offer</h4>
+                  <CloseIcon className={styles.close} onClick={handleClose} />
+                  <TextField label="Price USD" variant="outlined" />
+                  <div className={styles.buttonContainer}>
+                    <Button
+                      variant="contained"
+                      onClick={() => setSuccess(true)}
+                    >
+                      Place Bid
+                    </Button>
+                  </div>
+                </>
+              )}
+              {success && (
+                <div className={styles.success}>
+                  <CloseIcon
+                    className={styles.closeTwo}
+                    onClick={handleClose}
+                  />
+                  <h1>Success!</h1>
+                  <p>You have placed a bid on this NFT!</p>
+                </div>
+              )}
+            </Box>
           </Modal>
         </div>
       )}
