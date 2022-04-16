@@ -1,0 +1,25 @@
+.chatContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-family: 'Proxima Nova Regular' !important;
+
+  .chatTextBox {
+    padding-left: 10px;
+  }
+
+  .chatButtonPosition {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .chatButton {
+    background-color: #42a5be;
+  }
+
+  .chatButton:hover {
+    background-color: #378a9e;
+  }
+}

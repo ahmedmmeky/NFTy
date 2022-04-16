@@ -1,6 +1,56 @@
+.ce-active-chat-card {
+  background-color: #e6e6e6 !important;
+}
+
+.ce-chat-card:hover {
+  background-color: #f2f2f2;
+  border-radius: 12px;
+}
+
+.ce-chat-title-text {
+  font-family: 'Proxima Nova Bold' !important;
+}
+
+.ce-chat-subtitle {
+  color: #555;
+  font-family: 'Proxima Nova Regular' !important;
+}
+
+.ce-chat-unread-dot {
+  background-color: #42a5be !important;
+}
+
 .ce-message-bubble {
   background-color: #42a5be !important;
   font-family: 'Proxima Nova Regular' !important;
+}
+
+.ce-chat-title-text {
+  font-family: 'Proxima Nova Extra Bold' !important;
+}
+
+.ce-chat-subtitle-text {
+  font-family: 'Proxima Nova Regular' !important;
+}
+
+.ce-message-date-text {
+  font-family: 'Proxima Nova Bold' !important;
+}
+
+.ce-message-timestamp {
+  font-family: 'Proxima Nova Regular' !important;
+}
+
+#ce-send-message-button {
+  background-color: #42a5be !important;
+}
+
+#ce-send-message-button:hover {
+  background-color: #378a9e !important;
+}
+
+.ce-chat-settings-container {
+  font-family: 'Proxima Nova Extra Bold' !important;
 }
 
 .ce-photo-section {
@@ -9,4 +59,11 @@
 
 #ce-options-drop-down {
   font-family: 'Proxima Nova Bold' !important;
+}
+
+#ce-delete-chat-button {
+  background-color: red !important;
+  border-radius: 8px !important;
+  color: #fff !important;
+  font-family: 'Proxima Nova Regular' !important;
 }

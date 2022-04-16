@@ -1,5 +1,11 @@
 import React, {useState} from "react";
 import {ChatEngine, getOrCreateChat} from "react-chat-engine";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import InputAdornment from '@mui/material/InputAdornment';
+import AddIcon from '@mui/icons-material/Add';
+import AccountCircle from '@mui/icons-material/AccountCircle';
+import styles from "./Chat.module.scss";
 import "./Chat.css";
 
 const DirectChat = () => {
@@ -15,15 +21,31 @@ const DirectChat = () => {
 
   function renderChatForm(creds) {
     return (
-      <div>
-        <input
+      <div className={styles.chatContainer}>
+        <TextField
+          className={styles.chatTextBox}
+          id="outlined-start-adornment"
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          InputProps={{
+            startAdornment: <InputAdornment position="start"><AccountCircle /></InputAdornment>
+          }}
+          onKeyPress={(e) => {
+            if (e.key === "Enter") {
+              createDirectChat(creds)
+            }
+        }}
         />
-        <button onClick={() => createDirectChat(creds)}>
-          Create
-        </button>
+        <div className={styles.chatButtonPosition}>
+          <Button
+            className={styles.chatButton}
+            variant="contained" 
+            onClick={() => createDirectChat(creds)}
+          >
+            <AddIcon />
+          </Button>
+        </div>
       </div>
     )
   }
