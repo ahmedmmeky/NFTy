@@ -12,7 +12,14 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import CloseIcon from "@mui/icons-material/Close";
 
-const NFT = ({ name, price, description, imgUrl, expandedView = true }) => {
+const NFT = ({
+  name,
+  price,
+  description,
+  imgUrl,
+  sell,
+  expandedView = true,
+}) => {
   const location = useLocation();
   const state = location.state;
   console.log(state);
@@ -44,6 +51,7 @@ const NFT = ({ name, price, description, imgUrl, expandedView = true }) => {
     <>
       {!expandedView && (
         <Card sx={{ maxWidth: 345 }} className={styles.cardContainer}>
+          {console.log(sell)}
           <CardMedia
             component="img"
             width="140"
@@ -60,9 +68,17 @@ const NFT = ({ name, price, description, imgUrl, expandedView = true }) => {
             </div>
           </CardContent>
           <CardActions className={styles.cardActions}>
-            <Button variant="contained" size="small" color="primary">
-              Bid
-            </Button>
+            {sell && (
+              <Button variant="contained" size="small" color="primary">
+                Sell
+              </Button>
+            )}
+            {!sell && (
+              <Button variant="contained" size="small" color="primary">
+                Buy
+              </Button>
+            )}
+
             <FavoriteBorderIcon />
           </CardActions>
         </Card>
@@ -93,7 +109,7 @@ const NFT = ({ name, price, description, imgUrl, expandedView = true }) => {
                 color="primary"
                 onClick={() => setOpen(true)}
               >
-                Place Bid
+                {state.sell ? "List For Sale" : "Place Bid"}
               </Button>
             </div>
           </div>
@@ -108,7 +124,7 @@ const NFT = ({ name, price, description, imgUrl, expandedView = true }) => {
             <Box sx={style}>
               {!success && (
                 <>
-                  <h4>Your Offer</h4>
+                  {state.sell ? <h4>Set Starting Bid</h4> : <h4>Your Offer</h4>}
                   <CloseIcon className={styles.close} onClick={handleClose} />
                   <TextField label="Price USD" variant="outlined" />
                   <div className={styles.buttonContainer}>
@@ -116,7 +132,7 @@ const NFT = ({ name, price, description, imgUrl, expandedView = true }) => {
                       variant="contained"
                       onClick={() => setSuccess(true)}
                     >
-                      Place Bid
+                      {state.sell ? "List for Sale" : "Place Bid"}
                     </Button>
                   </div>
                 </>
@@ -128,11 +144,53 @@ const NFT = ({ name, price, description, imgUrl, expandedView = true }) => {
                     onClick={handleClose}
                   />
                   <h1>Success!</h1>
-                  <p>You have placed a bid on this NFT!</p>
+                  {state.sell ? (
+                    <p>You have successfully listed this NFT!</p>
+                  ) : (
+                    <p>You have placed a bid on this NFT!</p>
+                  )}
                 </div>
               )}
             </Box>
           </Modal>
+
+          {/*sell && (
+            <Modal
+              open={open && sell === false}
+              onClose={handleClose}
+              aria-labelledby="modal-modal-title"
+              aria-describedby="modal-modal-description"
+              className={styles.form}
+            >
+              <Box sx={style}>
+                {!success && (
+                  <>
+                    <h4>Set Starting Price</h4>
+                    <CloseIcon className={styles.close} onClick={handleClose} />
+                    <TextField label="Price USD" variant="outlined" />
+                    <div className={styles.buttonContainer}>
+                      <Button
+                        variant="contained"
+                        onClick={() => setSuccess(true)}
+                      >
+                        List For Sale
+                      </Button>
+                    </div>
+                  </>
+                )}
+                {success && (
+                  <div className={styles.success}>
+                    <CloseIcon
+                      className={styles.closeTwo}
+                      onClick={handleClose}
+                    />
+                    <h1>Success!</h1>
+                    <p>You have successfully listed this NFT!</p>
+                  </div>
+                )}
+              </Box>
+            </Modal>
+                )*/}
         </div>
       )}
     </>
