@@ -117,12 +117,10 @@ const NFT = ({
                   <CloseIcon className={styles.close} onClick={handleClose} />
                   <TextField label="Price USD" variant="outlined" />
                   <div className={styles.buttonContainer}>
-                    <Button
-                      variant="contained"
+                    <NFTYButton
                       onClick={() => setSuccess(true)}
-                    >
-                      {state.sell ? "List for Sale" : "Place Bid"}
-                    </Button>
+                      label={state.sell ? "List For Sale" : "Place Bid"}
+                    />
                   </div>
                 </>
               )}
