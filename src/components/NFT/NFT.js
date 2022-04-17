@@ -23,7 +23,6 @@ const NFT = ({
 }) => {
   const location = useLocation();
   const state = location.state;
-  console.log(state);
 
   const [open, setOpen] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -52,12 +51,15 @@ const NFT = ({
     <div className={styles.nftContainer}>
       {!expandedView && (
         <Card sx={{ maxWidth: 345 }} className={styles.cardContainer}>
-          {console.log(sell)}
           <CardMedia
             component="img"
-            width="140"
+            width="345"
+            height="345"
             image={imgUrl}
             alt="NFT image"
+            sx={{
+              borderRadius: 5
+            }}
           />
           <CardContent className={styles.cardContent}>
             <div className={styles.nameContainer}>

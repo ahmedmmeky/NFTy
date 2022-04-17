@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {ChatEngine, getOrCreateChat} from "react-chat-engine";
-import Button from "@mui/material/Button";
+import NFTYButton from "../../components/NFTYButton";
 import TextField from "@mui/material/TextField";
 import InputAdornment from '@mui/material/InputAdornment';
 import AddIcon from '@mui/icons-material/Add';
@@ -38,13 +38,10 @@ const DirectChat = () => {
           }}
         />
         <div className={styles.chatButtonPosition}>
-          <Button
-            className={styles.chatButton}
-            variant="contained" 
+          <NFTYButton
+            label="New Chat" 
             onClick={() => createDirectChat(creds)}
-          >
-            <AddIcon />
-          </Button>
+          />
         </div>
       </div>
     )

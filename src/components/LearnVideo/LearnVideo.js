@@ -1,11 +1,15 @@
 import React from "react";
 import ReactPlayer from "react-player";
-import Button from "@mui/material/Button";
+import NFTYButton from "../NFTYButton";
 import Stack from "@mui/material/Stack";
 import styles from "./LearnVideo.module.scss";
 
 // Create area for header, video, and redirect button tomorrow morning
 const LearnVideo = ({ name, videoUrl, redirectUrl }) => {
+  function openURL(url) {
+    window.open(url);
+  }
+
   return (
     <div className={styles.learnVideoContainer}>
       <Stack spacing={2}>
@@ -13,9 +17,11 @@ const LearnVideo = ({ name, videoUrl, redirectUrl }) => {
         <ReactPlayer
           url={videoUrl}
         />
-        <Button className={styles.redirectButton} variant="contained" href={redirectUrl}>
-          Read More
-        </Button>
+        <NFTYButton 
+          label="Read More"
+          width="500"
+          onClick={() => openURL(redirectUrl)}
+        />
       </Stack>
     </div>
   );
