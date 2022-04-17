@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
-import Box from '@mui/material/Box';
+import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
-import NFT from "../../components/NFT"
+import NFT from "../../components/NFT";
 import Wallet from "../../components/Wallet";
 import styles from "./Portfolio.module.scss";
 
@@ -21,7 +21,14 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{padding: 3, overflowY: 'scroll', height: '100%', width: 'calc(100vw - 200px)'}}>
+        <Box
+          sx={{
+            padding: 3,
+            overflowY: "scroll",
+            height: "100%",
+            width: "calc(100vw - 200px)",
+          }}
+        >
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -38,7 +45,7 @@ TabPanel.propTypes = {
 function a11yProps(index) {
   return {
     id: `vertical-tab-${index}`,
-    'aria-controls': `vertical-tabpanel-${index}`,
+    "aria-controls": `vertical-tabpanel-${index}`,
   };
 }
 
@@ -120,7 +127,13 @@ const Portfolio = () => {
 
   return (
     <Box
-      sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: 224 }}
+      className={styles.mainBox}
+      sx={{
+        flexGrow: 1,
+        bgcolor: "background.paper",
+        display: "flex",
+        height: 224,
+      }}
     >
       <Tabs
         orientation="vertical"
@@ -128,39 +141,44 @@ const Portfolio = () => {
         value={value}
         onChange={handleChange}
         aria-label="Vertical tabs example"
-        sx={{ borderRight: 1, borderColor: 'divider', maxWidth: '150px', minWidth: '150px' }}
+        sx={{
+          borderRight: 1,
+          borderColor: "divider",
+          maxWidth: "150px",
+          minWidth: "150px",
+        }}
       >
         <Tab label="Owned NFTs" {...a11yProps(0)} className={styles.tab} />
         <Tab label="Wallets" {...a11yProps(1)} className={styles.tab} />
       </Tabs>
       <TabPanel value={value} index={0}>
         <Box>
-        <h1 className={styles.ownedNFTTitle}>Current Collection</h1>
-        <div className={styles.nftsContainer}>
-        {updatedNFTs.length !== 0 ? (
-          updatedNFTs.map((nft) => {
-            return (
-              <div key={nft.id}>
-                <Link to={{ pathname: `/${nft.id}` }} state={nft}>
-                  <NFT
-                    id={nft.id}
-                    name={nft.name}
-                    price={nft.price}
-                    description={nft.description}
-                    imgUrl={nft.imgUrl}
-                    expandedView={false}
-                    sell={nft.sell}
-                  />
-                </Link>
+          <h1 className={styles.ownedNFTTitle}>Current Collection</h1>
+          <div className={styles.nftsContainer}>
+            {updatedNFTs.length !== 0 ? (
+              updatedNFTs.map((nft) => {
+                return (
+                  <div key={nft.id}>
+                    <Link to={{ pathname: `/${nft.id}` }} state={nft}>
+                      <NFT
+                        id={nft.id}
+                        name={nft.name}
+                        price={nft.price}
+                        description={nft.description}
+                        imgUrl={nft.imgUrl}
+                        expandedView={false}
+                        sell={nft.sell}
+                      />
+                    </Link>
+                  </div>
+                );
+              })
+            ) : (
+              <div className="no-coins">
+                <h2>No NFTs Were Found</h2>
               </div>
-            );
-          })
-          ) : (
-            <div className="no-coins">
-              <h2>No NFTs Were Found</h2>
-            </div>
-          )}
-        </div>
+            )}
+          </div>
         </Box>
       </TabPanel>
       <TabPanel value={value} index={1}>
