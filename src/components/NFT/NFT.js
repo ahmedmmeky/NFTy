@@ -11,6 +11,7 @@ import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import CloseIcon from "@mui/icons-material/Close";
+import NFTYButton from "../NFTYButton";
 
 const NFT = ({
   name,
@@ -111,6 +112,7 @@ const NFT = ({
               >
                 {state.sell ? "List For Sale" : "Place Bid"}
               </Button>
+              <NFTYButton onClick={() => setOpen(true)} sell={state.sell} />
             </div>
           </div>
 
