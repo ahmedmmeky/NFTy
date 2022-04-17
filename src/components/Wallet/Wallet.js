@@ -52,8 +52,9 @@ const Wallet = () => {
     boxShadow: 24,
     p: 4,
     display: "flex",
+    flexDirection: "column",
     justifyContent: "center",
-    gap: 32,
+    alignItems: "center",
   };
 
   const handleOpen = () => {
@@ -101,7 +102,12 @@ const Wallet = () => {
       </div>
       <div className={styles.createWallet}>
         <h3>Don't Have A Wallet?</h3>
-        <NFTYButton label="Buy" onClick={handleOpen} label="Create Wallet" />
+        <NFTYButton
+          label="Buy"
+          onClick={handleOpen}
+          label="Create Wallet"
+          width="140"
+        />
 
         <Modal
           open={open}
@@ -125,10 +131,12 @@ const Wallet = () => {
               </div>
               <NFTYButton
                 label="Create Wallet"
+                width="140"
                 onClick={() => {
                   handleCreate(walletName);
                   handleClose();
                 }}
+                styles={{ paddingTop: "10px" }}
               />
             </FormControl>
           </Box>
