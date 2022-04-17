@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import styles from "./Create.module.scss";
 import Input from "@mui/material/Input";
 import { Link } from "react-router-dom";
+import NFTYButton from "../../components/NFTYButton";
 
 const Create = () => {
   return (
@@ -40,7 +41,7 @@ const Create = () => {
       </div>
       <div className={styles.buttonContainer}>
         <Link to="/explore">
-          <Button variant="contained">Create NFT</Button>
+          <NFTYButton label="Create"></NFTYButton>
         </Link>
       </div>
     </div>
