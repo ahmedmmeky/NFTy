@@ -5,7 +5,6 @@ import ListItemAvatar from "@mui/material/ListItemAvatar";
 import ListItemText from "@mui/material/ListItemText";
 import Avatar from "@mui/material/Avatar";
 import styles from "./Wallet.module.scss";
-import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import FormControl from "@mui/material/FormControl";
@@ -103,7 +102,6 @@ const Wallet = () => {
       <div className={styles.createWallet}>
         <h3>Don't Have A Wallet?</h3>
         <NFTYButton
-          label="Buy"
           onClick={handleOpen}
           label="Create Wallet"
           width="140"
