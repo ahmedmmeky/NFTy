@@ -10,7 +10,7 @@ import NFTYButton from "../../components/NFTYButton";
 const Create = () => {
   return (
     <div className={styles.create}>
-      <h3>Create a New NFT</h3>
+      <h2>Create a New NFT</h2>
       <div className={styles.createForm}>
         {" "}
         <div className={styles.image}>
