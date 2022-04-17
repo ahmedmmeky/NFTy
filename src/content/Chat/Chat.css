@@ -12,7 +12,7 @@
 }
 
 .ce-chat-subtitle {
-  color: #555;
+  color: #555 !important;
   font-family: 'Proxima Nova Regular' !important;
 }
 
@@ -38,6 +38,10 @@
 }
 
 .ce-message-timestamp {
+  font-family: 'Proxima Nova Regular' !important;
+}
+
+.ql-container {
   font-family: 'Proxima Nova Regular' !important;
 }
 

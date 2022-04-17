@@ -135,7 +135,7 @@ const Portfolio = () => {
       </Tabs>
       <TabPanel value={value} index={0}>
         <Box>
-        Owned NFTs
+        <h1 className={styles.ownedNFTTitle}>Current Collection</h1>
         <div className={styles.nftsContainer}>
         {updatedNFTs.length !== 0 ? (
           updatedNFTs.map((nft) => {
