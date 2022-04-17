@@ -1,7 +1,6 @@
 import React from "react";
 import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
 import styles from "./Create.module.scss";
 import Input from "@mui/material/Input";
 import { Link } from "react-router-dom";
@@ -10,14 +9,14 @@ import NFTYButton from "../../components/NFTYButton";
 const Create = () => {
   return (
     <div className={styles.create}>
-      <h2>Create a New NFT</h2>
+      <h1>Create a New NFT</h1>
       <div className={styles.createForm}>
         {" "}
         <div className={styles.image}>
           <h4>Upload an Image</h4>
           <Input
             accept="image/*"
-            id="contained-button-file"
+            id="upload-nft"
             multiple
             type="file"
           />

@@ -1,9 +1,9 @@
 .create {
   display: flex;
   flex-direction: column;
-  padding-top: 64px;
+  padding-top: 12px;
 
-  h2 {
+  h1 {
     color: #42a5be;
     font-family: "Proxima Nova Extra Bold";
   }
@@ -35,6 +35,6 @@
   }
 
   .buttonContainer {
-    padding-top: 24px;
+    padding-top: 96px;
   }
 }
