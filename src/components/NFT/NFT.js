@@ -69,9 +69,8 @@ const NFT = ({
             </div>
           </CardContent>
           <CardActions className={styles.cardActions}>
-            {sell && <NFTYButton label="Sell"></NFTYButton>}
-            {!sell && <NFTYButton label="Buy">Buy</NFTYButton>}
-
+            {sell && <NFTYButton label="Sell" width="100" />}
+            {!sell && <NFTYButton label="Buy" width="100" />}
             <FavoriteBorderIcon />
           </CardActions>
         </Card>

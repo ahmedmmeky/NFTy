@@ -14,7 +14,7 @@ const NFTYButton = ({ width, label, ...buttonProps }) => {
         <button
           className={styles.btn}
           {...buttonProps}
-          styles={{ width: width }}
+          style={{ width: width + "px" }}
         >
           {label}
         </button>
