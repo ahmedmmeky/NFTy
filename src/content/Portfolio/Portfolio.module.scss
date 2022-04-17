@@ -1,9 +1,9 @@
 .tab {
-  font-family: 'Proxima Nova Bold' !important;
+  font-family: "Proxima Nova Bold" !important;
 }
 
 .ownedNFTTitle {
-  font-family: 'Proxima Nova Extra Bold';
+  font-family: "Proxima Nova Extra Bold";
 }
 
 .nftsContainer {
@@ -15,4 +15,13 @@
   padding-right: 24px;
   flex-wrap: wrap;
   padding-bottom: 36px;
+}
+
+.mainBox {
+  padding-bottom: 24px;
+
+  h1 {
+    color: #42a5be;
+    font-family: "Proxima Nova Extra Bold";
+  }
 }

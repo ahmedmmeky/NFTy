@@ -1,11 +1,18 @@
 .create {
   display: flex;
   flex-direction: column;
+  padding-top: 64px;
+
+  h2 {
+    color: #42a5be;
+    font-family: "Proxima Nova Extra Bold";
+  }
 
   .createForm {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    gap: 120px;
     padding-top: 64px;
 
     .image {

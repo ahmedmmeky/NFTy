@@ -11,6 +11,7 @@ import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import CloseIcon from "@mui/icons-material/Close";
+import NFTYButton from "../NFTYButton";
 
 const NFT = ({
   name,
@@ -48,7 +49,7 @@ const NFT = ({
     justifyContent: "center",
   };
   return (
-    <>
+    <div className={styles.nftContainer}>
       {!expandedView && (
         <Card sx={{ maxWidth: 345 }} className={styles.cardContainer}>
           {console.log(sell)}
@@ -68,17 +69,8 @@ const NFT = ({
             </div>
           </CardContent>
           <CardActions className={styles.cardActions}>
-            {sell && (
-              <Button variant="contained" size="small" color="primary">
-                Sell
-              </Button>
-            )}
-            {!sell && (
-              <Button variant="contained" size="small" color="primary">
-                Buy
-              </Button>
-            )}
-
+            {sell && <NFTYButton label="Sell" width="100" />}
+            {!sell && <NFTYButton label="Buy" width="100" />}
             <FavoriteBorderIcon />
           </CardActions>
         </Card>
@@ -103,14 +95,10 @@ const NFT = ({
               <h2>{state.description}</h2>
             </div>
             <div className={styles.subInfo}>
-              <Button
-                variant="contained"
-                size="small"
-                color="primary"
+              <NFTYButton
                 onClick={() => setOpen(true)}
-              >
-                {state.sell ? "List For Sale" : "Place Bid"}
-              </Button>
+                label={state.sell ? "List For Sale" : "Place Bid"}
+              />
             </div>
           </div>
 
@@ -128,12 +116,10 @@ const NFT = ({
                   <CloseIcon className={styles.close} onClick={handleClose} />
                   <TextField label="Price USD" variant="outlined" />
                   <div className={styles.buttonContainer}>
-                    <Button
-                      variant="contained"
+                    <NFTYButton
                       onClick={() => setSuccess(true)}
-                    >
-                      {state.sell ? "List for Sale" : "Place Bid"}
-                    </Button>
+                      label={state.sell ? "List For Sale" : "Place Bid"}
+                    />
                   </div>
                 </>
               )}
@@ -155,7 +141,7 @@ const NFT = ({
           </Modal>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
