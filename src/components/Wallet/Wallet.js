@@ -80,7 +80,7 @@ const Wallet = () => {
   return (
     <div className={styles.wallet}>
       <div className={styles.myWallets}>
-        <h2>My Wallets</h2>
+        <h1>My Wallets</h1>
         <List dense={false}>
           {wallets.map((wallet) => {
             return (
@@ -99,7 +99,7 @@ const Wallet = () => {
         </List>
       </div>
       <div className={styles.createWallet}>
-        <h4>Don't Have A Wallet?</h4>
+        <h3>Don't Have A Wallet?</h3>
         <Button variant="contained" onClick={handleOpen}>
           Create Wallet
         </Button>

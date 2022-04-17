@@ -35,7 +35,7 @@ const DirectChat = () => {
             if (e.key === "Enter") {
               createDirectChat(creds)
             }
-        }}
+          }}
         />
         <div className={styles.chatButtonPosition}>
           <Button

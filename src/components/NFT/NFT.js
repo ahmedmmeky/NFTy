@@ -153,44 +153,6 @@ const NFT = ({
               )}
             </Box>
           </Modal>
-
-          {/*sell && (
-            <Modal
-              open={open && sell === false}
-              onClose={handleClose}
-              aria-labelledby="modal-modal-title"
-              aria-describedby="modal-modal-description"
-              className={styles.form}
-            >
-              <Box sx={style}>
-                {!success && (
-                  <>
-                    <h4>Set Starting Price</h4>
-                    <CloseIcon className={styles.close} onClick={handleClose} />
-                    <TextField label="Price USD" variant="outlined" />
-                    <div className={styles.buttonContainer}>
-                      <Button
-                        variant="contained"
-                        onClick={() => setSuccess(true)}
-                      >
-                        List For Sale
-                      </Button>
-                    </div>
-                  </>
-                )}
-                {success && (
-                  <div className={styles.success}>
-                    <CloseIcon
-                      className={styles.closeTwo}
-                      onClick={handleClose}
-                    />
-                    <h1>Success!</h1>
-                    <p>You have successfully listed this NFT!</p>
-                  </div>
-                )}
-              </Box>
-            </Modal>
-                )*/}
         </div>
       )}
     </>

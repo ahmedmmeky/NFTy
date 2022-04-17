@@ -7,7 +7,6 @@ import Portfolio from "./content/Portfolio";
 import Learn from "./content/Learn";
 import Chat from "./content/Chat";
 import Create from "./content/Create";
-import Wallet from "./content/Wallet";
 import NFT from "./components/NFT";
 import Footer from "./components/Footer";
 
@@ -28,7 +27,6 @@ function App() {
           <Route path="/learn" element={<Learn />}></Route>
           <Route path="/chat" element={<Chat />}></Route>
           <Route path="/create" element={<Create />}></Route>
-          <Route path="/wallet" element={<Wallet />}></Route>
           <Route path="/:id" element={<NFT />}></Route>
         </Routes>
         <Footer />

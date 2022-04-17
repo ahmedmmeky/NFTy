@@ -1,6 +1,7 @@
 .wallet {
-  padding-top: 24px;
+
   .myWallets {
+    font-family: 'Proxima Nova Extra Bold';
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -8,20 +9,24 @@
     gap: 24px;
 
     .listItem {
+      font-family: 'Proxima Nova Regular';
       padding-bottom: 18px;
     }
   }
 
   .createWallet {
+    font-family: 'Proxima Nova Bold';
     padding-top: 24px;
 
     .inputContainer {
+      font-family: 'Proxima Nova Regular';
       padding-bottom: 24px;
     }
   }
 
   .walletInfo {
     display: flex;
+    font-family: 'Proxima Nova Regular';
     flex-direction: column;
     justify-content: center;
     align-items: center;
