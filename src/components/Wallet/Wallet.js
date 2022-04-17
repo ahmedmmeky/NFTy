@@ -129,15 +129,17 @@ const Wallet = () => {
                   Please provide an easy to remember name
                 </FormHelperText>
               </div>
-              <NFTYButton
-                label="Create Wallet"
-                width="140"
-                onClick={() => {
-                  handleCreate(walletName);
-                  handleClose();
-                }}
-                styles={{ paddingTop: "10px" }}
-              />
+              <div className={styles.buttonContainer}>
+                <NFTYButton
+                  label="Create Wallet"
+                  width="140"
+                  onClick={() => {
+                    handleCreate(walletName);
+                    handleClose();
+                  }}
+                  styles={{ marginTop: "24px" }}
+                />
+              </div>
             </FormControl>
           </Box>
         </Modal>
