@@ -12,6 +12,7 @@ import FormControl from "@mui/material/FormControl";
 import Input from "@mui/material/Input";
 import FormHelperText from "@mui/material/FormHelperText";
 import InputLabel from "@mui/material/InputLabel";
+import NFTYButton from "../NFTYButton";
 
 const Wallet = () => {
   const [walletName, setWalletName] = useState("");
@@ -100,9 +101,7 @@ const Wallet = () => {
       </div>
       <div className={styles.createWallet}>
         <h3>Don't Have A Wallet?</h3>
-        <Button variant="contained" onClick={handleOpen}>
-          Create Wallet
-        </Button>
+        <NFTYButton label="Buy" onClick={handleOpen} label="Create Wallet" />
 
         <Modal
           open={open}
@@ -124,15 +123,13 @@ const Wallet = () => {
                   Please provide an easy to remember name
                 </FormHelperText>
               </div>
-              <Button
-                variant="contained"
+              <NFTYButton
+                label="Create Wallet"
                 onClick={() => {
                   handleCreate(walletName);
                   handleClose();
                 }}
-              >
-                Create Wallet
-              </Button>
+              />
             </FormControl>
           </Box>
         </Modal>
