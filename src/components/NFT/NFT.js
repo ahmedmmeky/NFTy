@@ -69,16 +69,8 @@ const NFT = ({
             </div>
           </CardContent>
           <CardActions className={styles.cardActions}>
-            {sell && (
-              <Button variant="contained" size="small" color="primary">
-                Sell
-              </Button>
-            )}
-            {!sell && (
-              <Button variant="contained" size="small" color="primary">
-                Buy
-              </Button>
-            )}
+            {sell && <NFTYButton label="Sell"></NFTYButton>}
+            {!sell && <NFTYButton label="Buy">Buy</NFTYButton>}
 
             <FavoriteBorderIcon />
           </CardActions>
@@ -104,15 +96,10 @@ const NFT = ({
               <h2>{state.description}</h2>
             </div>
             <div className={styles.subInfo}>
-              <Button
-                variant="contained"
-                size="small"
-                color="primary"
+              <NFTYButton
                 onClick={() => setOpen(true)}
-              >
-                {state.sell ? "List For Sale" : "Place Bid"}
-              </Button>
-              <NFTYButton onClick={() => setOpen(true)} sell={state.sell} />
+                label={state.sell ? "List For Sale" : "Place Bid"}
+              />
             </div>
           </div>
 

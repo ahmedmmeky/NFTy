@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "./NFTYButton.module.scss";
 
-const NFTYButton = ({ butonText, ...buttonProps }) => {
+const NFTYButton = ({ label, ...buttonProps }) => {
   return (
     <div>
       {" "}
       <button className={styles.btn} {...buttonProps}>
-        {buttonText}
+        {label}
       </button>
     </div>
   );
