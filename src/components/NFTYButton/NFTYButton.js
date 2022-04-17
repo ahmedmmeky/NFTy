@@ -1,13 +1,24 @@
 import React from "react";
 import styles from "./NFTYButton.module.scss";
 
-const NFTYButton = ({ label, ...buttonProps }) => {
+const NFTYButton = ({ width, label, ...buttonProps }) => {
   return (
     <div>
       {" "}
-      <button className={styles.btn} {...buttonProps}>
-        {label}
-      </button>
+      {width === undefined && (
+        <button className={styles.btn} {...buttonProps}>
+          {label}
+        </button>
+      )}
+      {width !== undefined && (
+        <button
+          className={styles.btn}
+          {...buttonProps}
+          styles={{ width: width }}
+        >
+          {label}
+        </button>
+      )}
     </div>
   );
 };
