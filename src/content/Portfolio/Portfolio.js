@@ -159,7 +159,11 @@ const Portfolio = () => {
               updatedNFTs.map((nft) => {
                 return (
                   <div key={nft.id}>
-                    <Link to={{ pathname: `/${nft.id}` }} state={nft}>
+                    <Link
+                      to={{ pathname: `/${nft.id}` }}
+                      state={nft}
+                      style={{ textDecoration: "none" }}
+                    >
                       <NFT
                         id={nft.id}
                         name={nft.name}

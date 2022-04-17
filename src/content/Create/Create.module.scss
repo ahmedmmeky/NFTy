@@ -1,6 +1,12 @@
 .create {
   display: flex;
   flex-direction: column;
+  padding-top: 64px;
+
+  h3 {
+    color: #42a5be;
+    font-family: "Proxima Nova Extra Bold";
+  }
 
   .createForm {
     display: flex;

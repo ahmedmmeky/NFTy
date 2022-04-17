@@ -49,7 +49,7 @@ const NFT = ({
     justifyContent: "center",
   };
   return (
-    <>
+    <div className={styles.nftContainer}>
       {!expandedView && (
         <Card sx={{ maxWidth: 345 }} className={styles.cardContainer}>
           {console.log(sell)}
@@ -141,7 +141,7 @@ const NFT = ({
           </Modal>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
