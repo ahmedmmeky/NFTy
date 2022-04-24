@@ -16,6 +16,8 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
+import ToggleButton from "@mui/material/ToggleButton";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 
 const NFT = ({
   name,
@@ -28,6 +30,11 @@ const NFT = ({
   const location = useLocation();
   const state = location.state;
   const [currency, setCurrency] = useState("USD");
+  const [alignment, setAlignment] = React.useState("web");
+
+  const handleTypeOfSell = (event, newAlignment) => {
+    setAlignment(newAlignment);
+  };
 
   const handleChange = (event) => {
     setCurrency(event.target.value);
@@ -104,8 +111,8 @@ const NFT = ({
               <h2>About:</h2>
               <h2>{state.description}</h2>
             </div>
-            <div className={styles.dropDown}>
-              <FormControl fullWidth>
+            <div className={styles.subInfo}>
+              <FormControl fullWidth className={styles.dropDown}>
                 <InputLabel id="demo-simple-select-label">
                   {currency}
                 </InputLabel>
@@ -122,12 +129,27 @@ const NFT = ({
                   <MenuItem value="BTC">BTC</MenuItem>
                 </Select>
               </FormControl>
+
+              <div className={styles.toggle}>
+                {" "}
+                <ToggleButtonGroup
+                  color="primary"
+                  value={alignment}
+                  exclusive
+                  onChange={handleTypeOfSell}
+                >
+                  <ToggleButton value="web">List Price</ToggleButton>
+                  <ToggleButton value="android">Starting Bid</ToggleButton>
+                </ToggleButtonGroup>
+              </div>
             </div>
             <div className={styles.subInfo}>
-              <NFTYButton
-                onClick={() => setOpen(true)}
-                label={state.sell ? "List For Sale" : "Place Bid"}
-              />
+              <div className={styles.nftyBtn}>
+                <NFTYButton
+                  onClick={() => setOpen(true)}
+                  label={state.sell ? "List For Sale" : "Place Bid"}
+                />
+              </div>
             </div>
           </div>
 
@@ -141,7 +163,7 @@ const NFT = ({
             <Box sx={style}>
               {!success && (
                 <>
-                  {state.sell ? <h4>Set Starting Bid</h4> : <h4>Your Offer</h4>}
+                  {state.sell ? <h4>Set Price</h4> : <h4>Your Offer</h4>}
                   <CloseIcon className={styles.close} onClick={handleClose} />
 
                   <TextField label={"Price " + currency} variant="outlined" />
