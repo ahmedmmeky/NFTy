@@ -1,12 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
 import styles from "./Create.module.scss";
 import Input from "@mui/material/Input";
 import { Link } from "react-router-dom";
 import NFTYButton from "../../components/NFTYButton";
+import Modal from "@mui/material/Modal";
+import Box from "@mui/material/Box";
+import CloseIcon from "@mui/icons-material/Close";
 
 const Create = () => {
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 400,
+    bgcolor: "background.paper",
+    border: "2px solid #000",
+    boxShadow: 24,
+    p: 4,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+  };
   return (
     <div className={styles.create}>
       <h1>Create a New NFT</h1>
@@ -34,10 +60,24 @@ const Create = () => {
         </div>
       </div>
       <div className={styles.buttonContainer}>
-        <Link to="/explore">
-          <NFTYButton label="Create"></NFTYButton>
-        </Link>
+        <NFTYButton label="Create" onClick={() => setOpen(true)}></NFTYButton>
       </div>
+
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        className={styles.modal}
+      >
+        <Box sx={style}>
+          <div className={styles.success}>
+            <CloseIcon className={styles.closeTwo} onClick={handleClose} />
+            <h1>Success!</h1>
+            <p>We are reviewing this NFT for copyright issues!</p>
+          </div>
+        </Box>
+      </Modal>
     </div>
   );
 };
