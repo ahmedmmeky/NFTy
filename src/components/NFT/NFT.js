@@ -66,6 +66,11 @@ const NFT = ({
 
   const bidHistory = [
     {
+      user: "Professor Haynes",
+      time: "04/28/2022",
+      price: "50 BTC",
+    },
+    {
       user: "Meky",
       time: "10/24/2021",
       price: "5 ETH",
@@ -74,11 +79,6 @@ const NFT = ({
       user: "NucciTheBoss",
       time: "01/10/2022",
       price: "10 ETH",
-    },
-    {
-      user: "Professor Haynes",
-      time: "04/28/2022",
-      price: "50 BTC",
     },
   ];
   return (
@@ -217,11 +217,15 @@ const NFT = ({
       <div className={styles.offerContainer}>
         <h1>Offer History</h1>
         <div className={styles.bids}>
-          <div className={styles.bid}>
-            <h3>Nucci The Boss</h3>
-            <h3>10/08/2022</h3>
-            <h3>10 ETH</h3>
-          </div>
+          {bidHistory.map((bid) => {
+            return (
+              <div className={styles.bid}>
+                <h3>{bid.user}</h3>
+                <h3>{bid.time}</h3>
+                <h3>{bid.price}</h3>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
