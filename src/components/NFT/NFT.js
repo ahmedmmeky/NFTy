@@ -27,7 +27,7 @@ const NFT = ({
 }) => {
   const location = useLocation();
   const state = location.state;
-  const [currency, setCurrency] = useState("");
+  const [currency, setCurrency] = useState("USD");
 
   const handleChange = (event) => {
     setCurrency(event.target.value);
@@ -106,7 +106,9 @@ const NFT = ({
             </div>
             <div className={styles.dropDown}>
               <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label">USD</InputLabel>
+                <InputLabel id="demo-simple-select-label">
+                  {currency}
+                </InputLabel>
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
@@ -115,9 +117,9 @@ const NFT = ({
                   onChange={handleChange}
                   defaultValue="USD"
                 >
-                  <MenuItem value={10}>USD</MenuItem>
-                  <MenuItem value={20}>ETH</MenuItem>
-                  <MenuItem value={30}>BTC</MenuItem>
+                  <MenuItem value="USD">USD</MenuItem>
+                  <MenuItem value="ETH">ETH</MenuItem>
+                  <MenuItem value="BTC">BTC</MenuItem>
                 </Select>
               </FormControl>
             </div>
@@ -142,7 +144,7 @@ const NFT = ({
                   {state.sell ? <h4>Set Starting Bid</h4> : <h4>Your Offer</h4>}
                   <CloseIcon className={styles.close} onClick={handleClose} />
 
-                  <TextField label="Price USD" variant="outlined" />
+                  <TextField label={"Price " + currency} variant="outlined" />
                   <div className={styles.buttonContainer}>
                     <NFTYButton
                       onClick={() => setSuccess(true)}
