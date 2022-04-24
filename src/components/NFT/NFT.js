@@ -6,7 +6,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import styles from "./NFT.module.scss";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+//import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -58,7 +58,7 @@ const NFT = ({
             image={imgUrl}
             alt="NFT image"
             sx={{
-              borderRadius: 5
+              borderRadius: 5,
             }}
           />
           <CardContent className={styles.cardContent}>
@@ -73,7 +73,6 @@ const NFT = ({
           <CardActions className={styles.cardActions}>
             {sell && <NFTYButton label="Sell" width="100" />}
             {!sell && <NFTYButton label="Buy" width="100" />}
-            <FavoriteBorderIcon />
           </CardActions>
         </Card>
       )}
