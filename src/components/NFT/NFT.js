@@ -214,20 +214,22 @@ const NFT = ({
         </div>
       )}
 
-      <div className={styles.offerContainer}>
-        <h1>Offer History</h1>
-        <div className={styles.bids}>
-          {bidHistory.map((bid) => {
-            return (
-              <div className={styles.bid}>
-                <h3>{bid.user}</h3>
-                <h3>{bid.time}</h3>
-                <h3>{bid.price}</h3>
-              </div>
-            );
-          })}
+      {expandedView && (
+        <div className={styles.offerContainer}>
+          <h1>Offer History</h1>
+          <div className={styles.bids}>
+            {bidHistory.map((bid) => {
+              return (
+                <div className={styles.bid}>
+                  <h3>{bid.user}</h3>
+                  <h3>{bid.time}</h3>
+                  <h3>{bid.price}</h3>
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
