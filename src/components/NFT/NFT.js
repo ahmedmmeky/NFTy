@@ -63,6 +63,24 @@ const NFT = ({
     flexDirection: "column",
     justifyContent: "center",
   };
+
+  const bidHistory = [
+    {
+      user: "Meky",
+      time: "10/24/2021",
+      price: "5 ETH",
+    },
+    {
+      user: "NucciTheBoss",
+      time: "01/10/2022",
+      price: "10 ETH",
+    },
+    {
+      user: "Professor Haynes",
+      time: "04/28/2022",
+      price: "50 BTC",
+    },
+  ];
   return (
     <div className={styles.nftContainer}>
       {!expandedView && (
@@ -195,6 +213,17 @@ const NFT = ({
           </Modal>
         </div>
       )}
+
+      <div className={styles.offerContainer}>
+        <h1>Offer History</h1>
+        <div className={styles.bids}>
+          <div className={styles.bid}>
+            <h3>Nucci The Boss</h3>
+            <h3>10/08/2022</h3>
+            <h3>10 ETH</h3>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

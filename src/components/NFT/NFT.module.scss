@@ -56,6 +56,7 @@
   justify-content: center;
   align-items: center;
   gap: 120px;
+  border-bottom: 1px solid black;
 
   .imgContainer {
     img {
@@ -119,8 +120,28 @@
 
 .nftyBtn {
   margin-top: 24px;
+  margin-bottom: 24px;
 }
 
 .toggle {
   width: 300px;
+}
+
+.offerContainer {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 24px;
+  flex-direction: column;
+  padding-left: 64px;
+}
+
+.bids {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  .bid {
+    display: flex;
+    gap: 18px;
+  }
 }
