@@ -6,12 +6,18 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import styles from "./NFT.module.scss";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+//import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import CloseIcon from "@mui/icons-material/Close";
 import NFTYButton from "../NFTYButton";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
+import ToggleButton from "@mui/material/ToggleButton";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 
 const NFT = ({
   name,
@@ -23,6 +29,16 @@ const NFT = ({
 }) => {
   const location = useLocation();
   const state = location.state;
+  const [currency, setCurrency] = useState("USD");
+  const [alignment, setAlignment] = React.useState("web");
+
+  const handleTypeOfSell = (event, newAlignment) => {
+    setAlignment(newAlignment);
+  };
+
+  const handleChange = (event) => {
+    setCurrency(event.target.value);
+  };
 
   const [open, setOpen] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -47,6 +63,24 @@ const NFT = ({
     flexDirection: "column",
     justifyContent: "center",
   };
+
+  const bidHistory = [
+    {
+      user: "Professor Haynes",
+      time: "04/28/2022",
+      price: "50 BTC",
+    },
+    {
+      user: "Meky",
+      time: "10/24/2021",
+      price: "5 ETH",
+    },
+    {
+      user: "NucciTheBoss",
+      time: "01/10/2022",
+      price: "10 ETH",
+    },
+  ];
   return (
     <div className={styles.nftContainer}>
       {!expandedView && (
@@ -58,7 +92,7 @@ const NFT = ({
             image={imgUrl}
             alt="NFT image"
             sx={{
-              borderRadius: 5
+              borderRadius: 5,
             }}
           />
           <CardContent className={styles.cardContent}>
@@ -73,7 +107,6 @@ const NFT = ({
           <CardActions className={styles.cardActions}>
             {sell && <NFTYButton label="Sell" width="100" />}
             {!sell && <NFTYButton label="Buy" width="100" />}
-            <FavoriteBorderIcon />
           </CardActions>
         </Card>
       )}
@@ -97,10 +130,46 @@ const NFT = ({
               <h2>{state.description}</h2>
             </div>
             <div className={styles.subInfo}>
-              <NFTYButton
-                onClick={() => setOpen(true)}
-                label={state.sell ? "List For Sale" : "Place Bid"}
-              />
+              <FormControl fullWidth className={styles.dropDown}>
+                <InputLabel id="demo-simple-select-label">
+                  {currency}
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={currency}
+                  label="USD"
+                  onChange={handleChange}
+                  defaultValue="USD"
+                >
+                  <MenuItem value="USD">USD</MenuItem>
+                  <MenuItem value="ETH">ETH</MenuItem>
+                  <MenuItem value="BTC">BTC</MenuItem>
+                </Select>
+              </FormControl>
+
+              {state.sell && (
+                <div className={styles.toggle}>
+                  {" "}
+                  <ToggleButtonGroup
+                    color="primary"
+                    value={alignment}
+                    exclusive
+                    onChange={handleTypeOfSell}
+                  >
+                    <ToggleButton value="web">List Price</ToggleButton>
+                    <ToggleButton value="android">Starting Bid</ToggleButton>
+                  </ToggleButtonGroup>
+                </div>
+              )}
+            </div>
+            <div className={styles.subInfo}>
+              <div className={styles.nftyBtn}>
+                <NFTYButton
+                  onClick={() => setOpen(true)}
+                  label={state.sell ? "List For Sale" : "Place Bid"}
+                />
+              </div>
             </div>
           </div>
 
@@ -114,9 +183,10 @@ const NFT = ({
             <Box sx={style}>
               {!success && (
                 <>
-                  {state.sell ? <h4>Set Starting Bid</h4> : <h4>Your Offer</h4>}
+                  {state.sell ? <h4>Set Price</h4> : <h4>Your Offer</h4>}
                   <CloseIcon className={styles.close} onClick={handleClose} />
-                  <TextField label="Price USD" variant="outlined" />
+
+                  <TextField label={"Price " + currency} variant="outlined" />
                   <div className={styles.buttonContainer}>
                     <NFTYButton
                       onClick={() => setSuccess(true)}
@@ -141,6 +211,23 @@ const NFT = ({
               )}
             </Box>
           </Modal>
+        </div>
+      )}
+
+      {expandedView && (
+        <div className={styles.offerContainer}>
+          <h1>Offer History</h1>
+          <div className={styles.bids}>
+            {bidHistory.map((bid) => {
+              return (
+                <div className={styles.bid}>
+                  <h3>{bid.user}</h3>
+                  <h3>{bid.time}</h3>
+                  <h3>{bid.price}</h3>
+                </div>
+              );
+            })}
+          </div>
         </div>
       )}
     </div>

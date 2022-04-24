@@ -38,3 +38,34 @@
     padding-top: 96px;
   }
 }
+
+.modal {
+  .buttonContainer {
+    display: flex;
+    justify-content: center;
+    button {
+      margin-top: 24px;
+    }
+  }
+
+  .success {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      margin: 0;
+    }
+
+    .closeTwo {
+      position: absolute;
+      bottom: 110px;
+      left: 425px;
+      cursor: pointer;
+    }
+  }
+}
+
+h1 {
+  color: #42a5be;
+}
