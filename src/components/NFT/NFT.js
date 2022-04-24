@@ -12,6 +12,10 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import CloseIcon from "@mui/icons-material/Close";
 import NFTYButton from "../NFTYButton";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 
 const NFT = ({
   name,
@@ -23,6 +27,11 @@ const NFT = ({
 }) => {
   const location = useLocation();
   const state = location.state;
+  const [currency, setCurrency] = useState("");
+
+  const handleChange = (event) => {
+    setCurrency(event.target.value);
+  };
 
   const [open, setOpen] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -95,6 +104,23 @@ const NFT = ({
               <h2>About:</h2>
               <h2>{state.description}</h2>
             </div>
+            <div className={styles.dropDown}>
+              <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">USD</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={currency}
+                  label="USD"
+                  onChange={handleChange}
+                  defaultValue="USD"
+                >
+                  <MenuItem value={10}>USD</MenuItem>
+                  <MenuItem value={20}>ETH</MenuItem>
+                  <MenuItem value={30}>BTC</MenuItem>
+                </Select>
+              </FormControl>
+            </div>
             <div className={styles.subInfo}>
               <NFTYButton
                 onClick={() => setOpen(true)}
@@ -115,6 +141,7 @@ const NFT = ({
                 <>
                   {state.sell ? <h4>Set Starting Bid</h4> : <h4>Your Offer</h4>}
                   <CloseIcon className={styles.close} onClick={handleClose} />
+
                   <TextField label="Price USD" variant="outlined" />
                   <div className={styles.buttonContainer}>
                     <NFTYButton
