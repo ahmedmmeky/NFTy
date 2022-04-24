@@ -130,18 +130,20 @@ const NFT = ({
                 </Select>
               </FormControl>
 
-              <div className={styles.toggle}>
-                {" "}
-                <ToggleButtonGroup
-                  color="primary"
-                  value={alignment}
-                  exclusive
-                  onChange={handleTypeOfSell}
-                >
-                  <ToggleButton value="web">List Price</ToggleButton>
-                  <ToggleButton value="android">Starting Bid</ToggleButton>
-                </ToggleButtonGroup>
-              </div>
+              {state.sell && (
+                <div className={styles.toggle}>
+                  {" "}
+                  <ToggleButtonGroup
+                    color="primary"
+                    value={alignment}
+                    exclusive
+                    onChange={handleTypeOfSell}
+                  >
+                    <ToggleButton value="web">List Price</ToggleButton>
+                    <ToggleButton value="android">Starting Bid</ToggleButton>
+                  </ToggleButtonGroup>
+                </div>
+              )}
             </div>
             <div className={styles.subInfo}>
               <div className={styles.nftyBtn}>
