@@ -14,12 +14,7 @@ const Create = () => {
         {" "}
         <div className={styles.image}>
           <h4>Upload an Image</h4>
-          <Input
-            accept="image/*"
-            id="upload-nft"
-            multiple
-            type="file"
-          />
+          <Input accept="image/*" id="upload-nft" multiple type="file" />
         </div>
         <div className={styles.form}>
           <FormControl>
@@ -28,7 +23,7 @@ const Create = () => {
               <TextField label="Name" variant="outlined" />
             </div>
             <div className={styles.inputContainer}>
-              <h4>Price</h4>
+              <h4>Price ($100 USD Reccomended)</h4>
               <TextField label="Price USD" variant="outlined" />
             </div>
             <div className={styles.inputContainer}>
